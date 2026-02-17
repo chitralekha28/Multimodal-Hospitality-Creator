@@ -1,0 +1,8 @@
+google-genai
+chromadb
+sentence-transformers
+diffusers
+transformers
+accelerate
+torch
+gradio
