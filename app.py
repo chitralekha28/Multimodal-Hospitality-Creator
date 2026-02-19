@@ -156,10 +156,7 @@ def hospitality_creator(user_input):
 
     narrative = generate_narrative(enhanced)
 
-    yield enhanced, narrative, []
-
-    # Now generating images (slow part)
-    yield enhanced, narrative, []
+    yield "🎨 Rendering architectural visuals...", enhanced, narrative, []
 
     images = generate_images(enhanced)
 
@@ -179,6 +176,8 @@ with gr.Blocks() as app:
     )
 
     generate_btn = gr.Button("Generate Concept")
+    status_output = gr.Markdown()
+
 
     with gr.Tabs():
         with gr.TabItem("Enhanced Cinematic Prompt"):
@@ -193,7 +192,13 @@ with gr.Blocks() as app:
     generate_btn.click(
     fn=hospitality_creator,
     inputs=user_input,
-    outputs=[enhanced_output, narrative_output, image_output],
+    outputs=[
+    status_output,
+    enhanced_output,
+    narrative_output,
+    image_output
+]
+,
     show_progress=True
 )
 
