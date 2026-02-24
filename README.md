@@ -1,21 +1,41 @@
-# Multimodal Hospitality Creator (GAI-28)
+Multimodal Hospitality Creator
 
-## Project Overview
-This project implements a Retrieval-Augmented Multimodal GenAI system for hospitality concept visualization.
+AI-powered hospitality concept generator using RAG + Gemini + Stable Diffusion.
 
-The system:
-- Accepts hospitality design prompts
-- Uses ChromaDB for semantic retrieval
-- Uses Gemini 2.5 Flash for prompt enhancement and narrative generation
-- Uses Stable Diffusion for image generation
+This system generates:
 
-## Current Status
-Initial prototype built in Google Colab.
-Codebase will be modularized and pushed shortly.
+🎯 Enhanced cinematic architectural prompts
 
-## Tech Stack
-- Python
-- ChromaDB
-- Sentence Transformers
-- Gemini API
-- Stable Diffusion
+📖 Professional hospitality project descriptions
+
+🎨 Multi-view AI-generated architectural visuals
+
+🚀 Tech Stack
+
+LLM: Google Gemini 2.5 Flash
+
+Image Generation: Stable Diffusion v1.5
+
+Vector Database: ChromaDB
+
+Embeddings: SentenceTransformers (MiniLM)
+
+UI: Gradio
+
+Backend: Python
+
+🧠 How It Works
+
+User enters hospitality concept
+
+RAG retrieves relevant architectural knowledge
+
+Gemini enhances the prompt
+
+Narrative is generated
+
+Stable Diffusion renders 4 architectural views
+
+🌍 Live Demo
+
+🔗 Deployment Link: https://huggingface.co/spaces/chitralekha28/multimodal-hospitality-creator
