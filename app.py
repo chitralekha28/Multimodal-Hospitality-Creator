@@ -104,41 +104,52 @@ def generate_narrative(enhanced_prompt):
 
 def generate_images(enhanced_prompt):
 
-    base_prompt = f"""
+    base_prompt = """
     ultra realistic architectural photography,
-    luxury resort building clearly visible,
-    {enhanced_prompt},
+    luxury eco resort building clearly visible,
+    modern minimal desert architecture,
+    rammed earth walls,
+    shaded courtyards,
+    infinity pool,
+    glass facade,
+    large resort structure in foreground,
+    sand dunes in background,
     professional architectural render,
     sharp focus, 8k
     """
 
     negative_prompt = """
-    empty landscape, no building,
-    distorted, surreal, blurry,
-    deformed structure
+    empty desert, landscape only,
+    no building, no architecture,
+    surreal, distorted, blurry
     """
 
     views = [
-        "aerial drone shot",
-        "eye level facade view",
-        "wide landscape perspective",
-        "poolside perspective"
+        "aerial drone shot showing full resort complex",
+        "eye level facade view of resort entrance",
+        "wide angle shot showing resort integrated with dunes",
+        "poolside perspective looking toward building"
     ]
 
     images = []
 
     for view in views:
-        full_prompt = base_prompt + ", " + view
+        full_prompt = f"""
+        {enhanced_prompt},
 
-        image = pipe(
+        {base_prompt},
+
+        Camera perspective: {view}
+        """
+
+        img = pipe(
             full_prompt,
             negative_prompt=negative_prompt,
-            guidance_scale=9,
-            num_inference_steps=15
+            guidance_scale=9.5,
+            num_inference_steps=40
         ).images[0]
 
-        images.append(image)
-
+        images.append(img)  
     return images
 
 
